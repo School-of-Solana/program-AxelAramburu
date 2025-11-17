@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "anchor_project/crowdsol/Cargo.toml"
+    ]
+}

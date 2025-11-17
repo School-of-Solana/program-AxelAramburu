@@ -8,13 +8,17 @@
 
 ### Description
 [TODO: Provide a comprehensive description of your dApp. Explain what it does. Be detailed about the core functionality.]
+CrowdSol is a crowdfunding platform where users can initiate ideas/projects and ask for funds for it. It's participative fundings, all users can send Solana to contribute in the development of the project and the funds are locked in a `CSPVault`. Each participation is represented on chain by a `UserParticipation` account.
 
 ### Key Features
 [TODO: List the main features of your dApp. Be specific about what users can do.]
 
-- Feature 1: [Description]
-- Feature 2: [Description]
-- ...
+- Feature 1: Create a crowdfunding
+    - User can create a crowdfunding with the specifications described in the `CSPVault`. He can add a duration, a title, a description and a funds goal for the campaign.
+- Feature 2: Participate/Donate in a crowdfunding 
+    - User can send SOL to the crowdfunding project, he can add a comment with his donation. On chain the participation is represented by a `UserParticipation` account.
+- Feature 3: Withdraw funds of a crowdfunding
+    - The owner of the crowdfunding project can withdraw the funds when his campaign is ended.
   
 ### How to Use the dApp
 [TODO: Provide step-by-step instructions for users to interact with your dApp]
@@ -48,8 +52,20 @@
 ```rust
 // Example account structure (replace with your actual structs)
 #[account]
-pub struct YourAccountName {
-    // Describe each field
+pub struct CSPVault {
+    pub owner: Pubkey,
+    pub begin: u64
+    pub duration: u64,
+    pub title: String,
+    pub description: String,
+    pub funds_goal: u64,
+}
+#[account]
+pub struct UserParticipation {
+    pub user: Pubkey,
+    pub csp_vault: Pubkey,
+    pub amount: u64
+    pub comment: u64,
 }
 ```
 
