@@ -1,0 +1,740 @@
+{
+    "kind": "rootNode",
+    "standard": "codama",
+    "version": "1.3.7",
+    "program": {
+        "kind": "programNode",
+        "name": "crowdsol",
+        "publicKey": "GWUmGEUeq7RyM99r22zPdLfxNcKN6SwpjVa128JrXpCU",
+        "version": "0.1.0",
+        "origin": "anchor",
+        "docs": [],
+        "accounts": [
+            {
+                "kind": "accountNode",
+                "name": "cSPVault",
+                "docs": [],
+                "data": {
+                    "kind": "structTypeNode",
+                    "fields": [
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "discriminator",
+                            "defaultValueStrategy": "omitted",
+                            "docs": [],
+                            "type": {
+                                "kind": "fixedSizeTypeNode",
+                                "size": 8,
+                                "type": {
+                                    "kind": "bytesTypeNode"
+                                }
+                            },
+                            "defaultValue": {
+                                "kind": "bytesValueNode",
+                                "data": "5be7d7690629d1bb",
+                                "encoding": "base16"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "owner",
+                            "docs": [],
+                            "type": {
+                                "kind": "publicKeyTypeNode"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "begin",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "duration",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "title",
+                            "docs": [],
+                            "type": {
+                                "kind": "sizePrefixTypeNode",
+                                "type": {
+                                    "kind": "stringTypeNode",
+                                    "encoding": "utf8"
+                                },
+                                "prefix": {
+                                    "kind": "numberTypeNode",
+                                    "format": "u32",
+                                    "endian": "le"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "description",
+                            "docs": [],
+                            "type": {
+                                "kind": "sizePrefixTypeNode",
+                                "type": {
+                                    "kind": "stringTypeNode",
+                                    "encoding": "utf8"
+                                },
+                                "prefix": {
+                                    "kind": "numberTypeNode",
+                                    "format": "u32",
+                                    "endian": "le"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "amount",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "fundsGoal",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "nonce",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "status",
+                            "docs": [],
+                            "type": {
+                                "kind": "definedTypeLinkNode",
+                                "name": "vaultStatus"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "bump",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u8",
+                                "endian": "le"
+                            }
+                        }
+                    ]
+                },
+                "discriminators": [
+                    {
+                        "kind": "fieldDiscriminatorNode",
+                        "name": "discriminator",
+                        "offset": 0
+                    }
+                ]
+            },
+            {
+                "kind": "accountNode",
+                "name": "userParticipation",
+                "docs": [],
+                "data": {
+                    "kind": "structTypeNode",
+                    "fields": [
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "discriminator",
+                            "defaultValueStrategy": "omitted",
+                            "docs": [],
+                            "type": {
+                                "kind": "fixedSizeTypeNode",
+                                "size": 8,
+                                "type": {
+                                    "kind": "bytesTypeNode"
+                                }
+                            },
+                            "defaultValue": {
+                                "kind": "bytesValueNode",
+                                "data": "e4e05d2d6463a1be",
+                                "encoding": "base16"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "user",
+                            "docs": [],
+                            "type": {
+                                "kind": "publicKeyTypeNode"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "cspVault",
+                            "docs": [],
+                            "type": {
+                                "kind": "publicKeyTypeNode"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "time",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "amount",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "comment",
+                            "docs": [],
+                            "type": {
+                                "kind": "sizePrefixTypeNode",
+                                "type": {
+                                    "kind": "stringTypeNode",
+                                    "encoding": "utf8"
+                                },
+                                "prefix": {
+                                    "kind": "numberTypeNode",
+                                    "format": "u32",
+                                    "endian": "le"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "vaultNonce",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u64",
+                                "endian": "le"
+                            }
+                        },
+                        {
+                            "kind": "structFieldTypeNode",
+                            "name": "bump",
+                            "docs": [],
+                            "type": {
+                                "kind": "numberTypeNode",
+                                "format": "u8",
+                                "endian": "le"
+                            }
+                        }
+                    ]
+                },
+                "discriminators": [
+                    {
+                        "kind": "fieldDiscriminatorNode",
+                        "name": "discriminator",
+                        "offset": 0
+                    }
+                ]
+            }
+        ],
+        "instructions": [
+            {
+                "kind": "instructionNode",
+                "name": "createCrowdfunding",
+                "docs": [],
+                "optionalAccountStrategy": "programId",
+                "accounts": [
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "vaultCreator",
+                        "isWritable": true,
+                        "isSigner": true,
+                        "isOptional": false,
+                        "docs": []
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "vault",
+                        "isWritable": true,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": [],
+                        "defaultValue": {
+                            "kind": "pdaValueNode",
+                            "pda": {
+                                "kind": "pdaNode",
+                                "name": "vault",
+                                "docs": [],
+                                "seeds": [
+                                    {
+                                        "kind": "constantPdaSeedNode",
+                                        "type": {
+                                            "kind": "bytesTypeNode"
+                                        },
+                                        "value": {
+                                            "kind": "bytesValueNode",
+                                            "data": "6373705f7661756c74",
+                                            "encoding": "base16"
+                                        }
+                                    },
+                                    {
+                                        "kind": "variablePdaSeedNode",
+                                        "name": "vaultCreator",
+                                        "docs": [],
+                                        "type": {
+                                            "kind": "publicKeyTypeNode"
+                                        }
+                                    }
+                                ]
+                            },
+                            "seeds": [
+                                {
+                                    "kind": "pdaSeedValueNode",
+                                    "name": "vaultCreator",
+                                    "value": {
+                                        "kind": "accountValueNode",
+                                        "name": "vaultCreator"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "systemProgram",
+                        "isWritable": false,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": [],
+                        "defaultValue": {
+                            "kind": "publicKeyValueNode",
+                            "publicKey": "11111111111111111111111111111111",
+                            "identifier": "systemProgram"
+                        }
+                    }
+                ],
+                "arguments": [
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "discriminator",
+                        "defaultValueStrategy": "omitted",
+                        "docs": [],
+                        "type": {
+                            "kind": "fixedSizeTypeNode",
+                            "size": 8,
+                            "type": {
+                                "kind": "bytesTypeNode"
+                            }
+                        },
+                        "defaultValue": {
+                            "kind": "bytesValueNode",
+                            "data": "e18673de6d2a13d5",
+                            "encoding": "base16"
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "duration",
+                        "docs": [],
+                        "type": {
+                            "kind": "numberTypeNode",
+                            "format": "u64",
+                            "endian": "le"
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "fundsGoal",
+                        "docs": [],
+                        "type": {
+                            "kind": "numberTypeNode",
+                            "format": "u64",
+                            "endian": "le"
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "title",
+                        "docs": [],
+                        "type": {
+                            "kind": "sizePrefixTypeNode",
+                            "type": {
+                                "kind": "stringTypeNode",
+                                "encoding": "utf8"
+                            },
+                            "prefix": {
+                                "kind": "numberTypeNode",
+                                "format": "u32",
+                                "endian": "le"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "description",
+                        "docs": [],
+                        "type": {
+                            "kind": "sizePrefixTypeNode",
+                            "type": {
+                                "kind": "stringTypeNode",
+                                "encoding": "utf8"
+                            },
+                            "prefix": {
+                                "kind": "numberTypeNode",
+                                "format": "u32",
+                                "endian": "le"
+                            }
+                        }
+                    }
+                ],
+                "discriminators": [
+                    {
+                        "kind": "fieldDiscriminatorNode",
+                        "name": "discriminator",
+                        "offset": 0
+                    }
+                ]
+            },
+            {
+                "kind": "instructionNode",
+                "name": "donate",
+                "docs": [],
+                "optionalAccountStrategy": "programId",
+                "accounts": [
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "participant",
+                        "isWritable": true,
+                        "isSigner": true,
+                        "isOptional": false,
+                        "docs": []
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "participation",
+                        "isWritable": true,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": []
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "vault",
+                        "isWritable": true,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": []
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "systemProgram",
+                        "isWritable": false,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": [],
+                        "defaultValue": {
+                            "kind": "publicKeyValueNode",
+                            "publicKey": "11111111111111111111111111111111",
+                            "identifier": "systemProgram"
+                        }
+                    }
+                ],
+                "arguments": [
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "discriminator",
+                        "defaultValueStrategy": "omitted",
+                        "docs": [],
+                        "type": {
+                            "kind": "fixedSizeTypeNode",
+                            "size": 8,
+                            "type": {
+                                "kind": "bytesTypeNode"
+                            }
+                        },
+                        "defaultValue": {
+                            "kind": "bytesValueNode",
+                            "data": "79badad34946c4b4",
+                            "encoding": "base16"
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "amount",
+                        "docs": [],
+                        "type": {
+                            "kind": "numberTypeNode",
+                            "format": "u64",
+                            "endian": "le"
+                        }
+                    },
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "comment",
+                        "docs": [],
+                        "type": {
+                            "kind": "sizePrefixTypeNode",
+                            "type": {
+                                "kind": "stringTypeNode",
+                                "encoding": "utf8"
+                            },
+                            "prefix": {
+                                "kind": "numberTypeNode",
+                                "format": "u32",
+                                "endian": "le"
+                            }
+                        }
+                    }
+                ],
+                "discriminators": [
+                    {
+                        "kind": "fieldDiscriminatorNode",
+                        "name": "discriminator",
+                        "offset": 0
+                    }
+                ]
+            },
+            {
+                "kind": "instructionNode",
+                "name": "withdraw",
+                "docs": [],
+                "optionalAccountStrategy": "programId",
+                "accounts": [
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "owner",
+                        "isWritable": true,
+                        "isSigner": true,
+                        "isOptional": false,
+                        "docs": []
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "vault",
+                        "isWritable": true,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": [],
+                        "defaultValue": {
+                            "kind": "pdaValueNode",
+                            "pda": {
+                                "kind": "pdaNode",
+                                "name": "vault",
+                                "docs": [],
+                                "seeds": [
+                                    {
+                                        "kind": "constantPdaSeedNode",
+                                        "type": {
+                                            "kind": "bytesTypeNode"
+                                        },
+                                        "value": {
+                                            "kind": "bytesValueNode",
+                                            "data": "6373705f7661756c74",
+                                            "encoding": "base16"
+                                        }
+                                    },
+                                    {
+                                        "kind": "variablePdaSeedNode",
+                                        "name": "owner",
+                                        "docs": [],
+                                        "type": {
+                                            "kind": "publicKeyTypeNode"
+                                        }
+                                    }
+                                ]
+                            },
+                            "seeds": [
+                                {
+                                    "kind": "pdaSeedValueNode",
+                                    "name": "owner",
+                                    "value": {
+                                        "kind": "accountValueNode",
+                                        "name": "owner"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "kind": "instructionAccountNode",
+                        "name": "systemProgram",
+                        "isWritable": false,
+                        "isSigner": false,
+                        "isOptional": false,
+                        "docs": [],
+                        "defaultValue": {
+                            "kind": "publicKeyValueNode",
+                            "publicKey": "11111111111111111111111111111111",
+                            "identifier": "systemProgram"
+                        }
+                    }
+                ],
+                "arguments": [
+                    {
+                        "kind": "instructionArgumentNode",
+                        "name": "discriminator",
+                        "defaultValueStrategy": "omitted",
+                        "docs": [],
+                        "type": {
+                            "kind": "fixedSizeTypeNode",
+                            "size": 8,
+                            "type": {
+                                "kind": "bytesTypeNode"
+                            }
+                        },
+                        "defaultValue": {
+                            "kind": "bytesValueNode",
+                            "data": "b712469c946da122",
+                            "encoding": "base16"
+                        }
+                    }
+                ],
+                "discriminators": [
+                    {
+                        "kind": "fieldDiscriminatorNode",
+                        "name": "discriminator",
+                        "offset": 0
+                    }
+                ]
+            }
+        ],
+        "definedTypes": [
+            {
+                "kind": "definedTypeNode",
+                "name": "vaultStatus",
+                "docs": [],
+                "type": {
+                    "kind": "enumTypeNode",
+                    "variants": [
+                        {
+                            "kind": "enumEmptyVariantTypeNode",
+                            "name": "open"
+                        },
+                        {
+                            "kind": "enumEmptyVariantTypeNode",
+                            "name": "withdrawn"
+                        }
+                    ],
+                    "size": {
+                        "kind": "numberTypeNode",
+                        "format": "u8",
+                        "endian": "le"
+                    }
+                }
+            }
+        ],
+        "pdas": [],
+        "errors": [
+            {
+                "kind": "errorNode",
+                "name": "durationTooShort",
+                "code": 6000,
+                "message": "Duration of the campaign is too short",
+                "docs": [
+                    "DurationTooShort: Duration of the campaign is too short"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "durationTooLong",
+                "code": 6001,
+                "message": "Duration of the campaign is too long",
+                "docs": [
+                    "DurationTooLong: Duration of the campaign is too long"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "titleWrongLength",
+                "code": 6002,
+                "message": "Title length is incorrect",
+                "docs": [
+                    "TitleWrongLength: Title length is incorrect"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "descriptionWrongLength",
+                "code": 6003,
+                "message": "Description length is incorrect",
+                "docs": [
+                    "DescriptionWrongLength: Description length is incorrect"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "commentWrongLength",
+                "code": 6004,
+                "message": "Comment length is incorrect",
+                "docs": [
+                    "CommentWrongLength: Comment length is incorrect"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "vaultEnded",
+                "code": 6005,
+                "message": "Campaign vault is ended",
+                "docs": [
+                    "VaultEnded: Campaign vault is ended"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "vaultNotEnded",
+                "code": 6006,
+                "message": "Campaign vault is not ended",
+                "docs": [
+                    "VaultNotEnded: Campaign vault is not ended"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "vaultAlreadyWithdrawn",
+                "code": 6007,
+                "message": "Vault is already withdrawn",
+                "docs": [
+                    "VaultAlreadyWithdrawn: Vault is already withdrawn"
+                ]
+            },
+            {
+                "kind": "errorNode",
+                "name": "amountZero",
+                "code": 6008,
+                "message": "Amounbt is zero",
+                "docs": [
+                    "AmountZero: Amounbt is zero"
+                ]
+            }
+        ]
+    },
+    "additionalPrograms": []
+}
