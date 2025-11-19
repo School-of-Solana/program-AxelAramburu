@@ -3,8 +3,9 @@ import { createSolanaDevnet, createSolanaLocalnet, createWalletUiConfig, WalletU
 import { WalletUiGillProvider } from '@wallet-ui/react-gill'
 import { solanaMobileWalletAdapter } from './solana-mobile-wallet-adapter'
 
+const url = process.env.DEVNET_URL
 const config = createWalletUiConfig({
-  clusters: [createSolanaDevnet('https://solana-devnet.g.alchemy.com/v2/FHHiXr7TW00yoeb7DsUPhST0r-4Ad0bF'), createSolanaLocalnet()],
+  clusters: [createSolanaDevnet(url ? url : 'https://solana-devnet.g.alchemy.com/v2/FHHiXr7TW00yoeb7DsUPhST0r-4Ad0bF'), createSolanaLocalnet()],
 })
 
 solanaMobileWalletAdapter({ clusters: config.clusters })
