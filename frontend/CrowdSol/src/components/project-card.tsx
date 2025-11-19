@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button"
 // import { useCart } from "@/lib/cart-context"
 import type { Project } from "@/lib/types"
 
+import placeholder from '../../placeholder.png'
+
 interface ProjectCardProps {
   project: Project
 }
@@ -24,7 +26,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <div className="group relative overflow-hidden rounded-lg border">
         <div className="aspect-square overflow-hidden bg-muted">
           <Image
-            src={project.image || "/placeholder.svg?height=400&width=400"}
+            src={placeholder}
             alt={project.name}
             width={400}
             height={400}

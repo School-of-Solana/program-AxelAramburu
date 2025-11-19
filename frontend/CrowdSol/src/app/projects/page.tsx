@@ -108,7 +108,7 @@ export default function ProjectsPage() {
                       <Button
                         variant="outline"
                         onClick={() => {
-                          setSelectedCategories([])
+                          // setSelectedCategories([])
                           setPriceRange([0, 1000])
                         }}
                       >

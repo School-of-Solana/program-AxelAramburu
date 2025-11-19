@@ -1,5 +1,5 @@
 export interface Project {
-  id: string
+  id: string  // vault address
   name: string
   description: string
   creator: string,

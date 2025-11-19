@@ -28,14 +28,15 @@ export function AccountUiCreateFunding(props: { account: UiWalletAccount;}) {
     }))
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     console.log('Submitting form with data:', formData);
-    const {vaultAddress, bump } = await getCSPVaultAddress(new PublicKey(props.account.publicKey), CROWDSOL_PROGRAM_ADDRESS);
-    console.log('PDA is', vaultAddress.toBase58() as Address, 'with bump', bump);
+    const {vaultAddress, bumpVault } = await getCSPVaultAddress(new PublicKey(props.account.publicKey), CROWDSOL_PROGRAM_ADDRESS);
+    console.log('PDA is', vaultAddress.toBase58() as Address, 'with bump', bumpVault);
     await mutation.mutateAsync({
       vault: vaultAddress.toBase58() as Address,
       duration: Number(formData.duration) * 86400, // Convert days to seconds,
-      fundsGoal: Number(formData.fundsGoal) * 1_000_000_000, // Convert SOL to lamports,
+      fundsGoal: Number(formData.fundsGoal), // In lamports
       title: formData.title,
       description: formData.description,
     })
@@ -78,7 +79,7 @@ export function AccountUiCreateFunding(props: { account: UiWalletAccount;}) {
                       />
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="fundsGoal">Funds Goal in SOL (Max. 100 SOL)</Label>
+                      <Label htmlFor="fundsGoal">Funds Goal in lamports (Max. 100 SOL)</Label>
                       <Input
                         id="fundsGoal"
                         name="fundsGoal"
@@ -87,11 +88,11 @@ export function AccountUiCreateFunding(props: { account: UiWalletAccount;}) {
                         required
                         type="number"
                         min={1}
-                        max={100}
+                        max={100000000000}  // 100 SOL
                       />
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="duration">Duration (~ 1 week to 3 months)</Label>
+                      <Label htmlFor="duration">Duration in days (~ 1 week to 3 months)</Label>
                       <Input
                         id="duration"
                         name="duration"

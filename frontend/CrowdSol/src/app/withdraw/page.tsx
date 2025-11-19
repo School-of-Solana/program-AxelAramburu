@@ -2,15 +2,14 @@
 
 import type React from "react"
 import { useSolana } from "@/components/solana/use-solana"
-import { AccountUiCreateFunding } from "@/features/create/ui/account-ui-create-funding"
-import { ErrorBoundary } from "next/dist/client/components/error-boundary"
+import { AccountUiWithdrawFunding } from "@/features/withdraw/ui/account-ui-withdraw"
 
-export default function CreatePage() {
+export default function WithdrawPage() {
   const { account } = useSolana()
 
   return (
     account ?
-          <AccountUiCreateFunding account={account}/>
+          <AccountUiWithdrawFunding account={account}/>
       : 
       <div className="flex justify-center items-center">
         Connect your wallet to create a crowdfunding project.

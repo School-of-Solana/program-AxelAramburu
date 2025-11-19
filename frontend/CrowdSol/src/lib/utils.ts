@@ -17,12 +17,9 @@ export function ellipsify(str = '', len = 4, delimiter = '..') {
   return strLen >= limit ? str.substring(0, len) + delimiter + str.substring(strLen - len, strLen) : str
 }
 
-export function getCSPVaultAddress(vaultCreator: PublicKey, programAddress: Address) : { vaultAddress: PublicKey; bump: number; } {
-  // const vaultCreatorAddress = typeof vaultCreator === 'string' 
-  //   ? vaultCreator 
-  //   : vaultCreator.address;
+export function getCSPVaultAddress(vaultCreator: PublicKey, programAddress: Address) : { vaultAddress: PublicKey; bumpVault: number; } {
 
-  const [pda, bump] = PublicKey.findProgramAddressSync(
+  const [pda, bumpVault] = PublicKey.findProgramAddressSync(
     [
       anchor.utils.bytes.utf8.encode(CSP_VAULT),
       vaultCreator.toBuffer(),
@@ -30,17 +27,19 @@ export function getCSPVaultAddress(vaultCreator: PublicKey, programAddress: Addr
     new PublicKey(programAddress)
   );
 
-  return { vaultAddress: pda, bump };
+  return { vaultAddress: pda, bumpVault };
 }
-export function getUserParticipationAddress(vault: PublicKey, participant: PublicKey, nonce: number, programID: PublicKey) {
-  const nonceBuffer = Buffer.alloc(8);
-  nonceBuffer.writeBigUInt64LE(BigInt(nonce));
+export function getUserParticipationAddress(vault: PublicKey, participant: PublicKey, nonce: number, programAddress: Address) : { upAddress: PublicKey; bumpUp: number; }{
 
-  return PublicKey.findProgramAddressSync(
+  const [pda, bumpUp] = PublicKey.findProgramAddressSync(
     [
       anchor.utils.bytes.utf8.encode(USER_PARTICIPATION),
       vault.toBuffer(),
       participant.toBuffer(),
-      nonceBuffer,
-    ], programID);
+      anchor.utils.bytes.utf8.encode(nonce.toString()),
+    ],
+    new PublicKey(programAddress)
+  );
+
+  return { upAddress: pda, bumpUp };
 }
